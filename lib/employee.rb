@@ -4,7 +4,7 @@ class Employee < ActiveRecord::Base
   before_create :set_password
 
   validates :first_name, :last_name, presence: true
-  validates :hourly_rate, numericality: { only_integer: true, greater_than: 40, less_than: 200 }
+  validates :hourly_rate, inclusion: 40..200
   validates :store_id, presence: true
 
   private
